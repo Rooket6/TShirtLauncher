@@ -39,7 +39,7 @@ public class ShirtLauncher extends Subsystem {
 	}
 
 	public void setDelay(double delay) {
-		this.delay = delay;
+		ShirtLauncher.delay = delay;
 	}
 	
 	// Controlled by Spike Relay 0
@@ -65,16 +65,17 @@ public class ShirtLauncher extends Subsystem {
 	}
 
 	public void toggleSolenoid() {
-		relay2.set(Relay.Value.kOff);
+		solenoid.set(!solenoid.get());
 		System.out.println("solenoid-Toggle");
 	}
 
 	public void solenoidOn() {
-		relay2.set(Relay.Value.kOff);
+		solenoid.set(true);
 		System.out.println("solenoid-On");
 	}
 
 	public void solenoidOff() {
+		solenoid.set(false);
 		relay2.set(Relay.Value.kOff);
 		System.out.println("solenoid-Off");
 	}
