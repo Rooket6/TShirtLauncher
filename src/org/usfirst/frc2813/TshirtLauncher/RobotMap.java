@@ -61,10 +61,6 @@ public class RobotMap {
         chassisDrivetrain.setSensitivity(0.5);
         chassisDrivetrain.setMaxOutput(1.0);
         
-        //chassisDrivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-        //chassisDrivetrain.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
-
-        //Warning, the two modules in robot builder are different!
         solenoid = new Solenoid(0);
         LiveWindow.addActuator("ShirtLauncher", "ReleaseAir", solenoid);
         

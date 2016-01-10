@@ -1,32 +1,29 @@
 package org.usfirst.frc2813.TshirtLauncher.commands;
 
+import org.usfirst.frc2813.TshirtLauncher.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ReleaseAir extends Command {
 
 	protected void initialize() {
-		// TODO Auto-generated method stub
-
+		requires(Robot.shirtLauncher);
 	}
 
 	protected void execute() {
-		// TODO Auto-generated method stub
-
+		Robot.shirtLauncher.solenoidOn();
 	}
 
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	protected void end() {
-		// TODO Auto-generated method stub
-
+		Robot.shirtLauncher.solenoidOff();
 	}
 
 	protected void interrupted() {
-		// TODO Auto-generated method stub
-
+		Robot.shirtLauncher.solenoidOff();
 	}
 
 }
