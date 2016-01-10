@@ -63,7 +63,7 @@ public class OI {
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("ShootLeft", new ShootLeft());
         SmartDashboard.putData("ShootLeft", new ShootRight());
-        SmartDashboard.putData("Arcadedrive", new Arcadedrive());
+        SmartDashboard.putData("Arcadedrive", new ArcadeDrive());
         
         // Buttons
 		new JoystickButton(joystickOne, 1).toggleWhenPressed(new ReleaseAir());

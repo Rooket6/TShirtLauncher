@@ -18,11 +18,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class Arcadedrive extends Command {
+public class ArcadeDrive extends Command {
 
 	double x, y;
 
-	public Arcadedrive() {
+	public ArcadeDrive() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(Robot.chassis);
@@ -38,9 +38,6 @@ public class Arcadedrive extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 
-		// Robot.drive.arcade(Robot.oi.drive1);
-		// Robot.drive.tankDrive(Robot.oi.drive1.getY(),
-		// Robot.oi.drive2.getY());
 		x = Robot.oi.joystickOne.getX();
 		y = Robot.oi.joystickOne.getY();
 

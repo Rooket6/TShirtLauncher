@@ -12,7 +12,7 @@
 package org.usfirst.frc2813.TshirtLauncher.subsystems;
 
 import org.usfirst.frc2813.TshirtLauncher.RobotMap;
-import org.usfirst.frc2813.TshirtLauncher.commands.Arcadedrive;
+import org.usfirst.frc2813.TshirtLauncher.commands.ArcadeDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -38,11 +38,9 @@ public class Chassis extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new Arcadedrive());
+        setDefaultCommand(new ArcadeDrive());
     }
-   public void arcade(Joystick joystickOne){
-	   drivetrain.arcadeDrive(joystickOne);
-   }
+	
     public void arcade(double move, double rotation) {
     	drivetrain.arcadeDrive(move, rotation);
     }
