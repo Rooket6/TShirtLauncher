@@ -11,13 +11,16 @@
 package org.usfirst.frc2813.TshirtLauncher.subsystems;
 
 import org.usfirst.frc2813.TshirtLauncher.RobotMap;
+import org.usfirst.frc2813.TshirtLauncher.commands.ReleaseAir;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * I am using this subsystem as an interface for the commands that pertain to launching shirts
+ * All shared variables are created with get set accessors (only delay right now)
+ * The actions to change the state of the relays and solenoid print to console for debugging purposes
  */
 public class ShirtLauncher extends Subsystem {
 	
@@ -31,7 +34,8 @@ public class ShirtLauncher extends Subsystem {
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new ReleaseAir()); // This command will run when the subsystem is
+											 // idle (ShootLeft and ShootRight not running)
 	}
 
 	public double getDelay() {
@@ -42,7 +46,7 @@ public class ShirtLauncher extends Subsystem {
 		ShirtLauncher.delay = delay;
 	}
 	
-	// Controlled by Spike Relay 0
+	// Relay 1 Controls
 	public void shootLeft() {
 		relay1.set(Relay.Value.kForward);
 		System.out.println("shootLeft-kForward");
@@ -53,7 +57,7 @@ public class ShirtLauncher extends Subsystem {
 		System.out.println("retractLeft-Reverse");
 	}
 
-	// Control by Spike Relay 1
+	// Relay 2 Controls
 	public void shootRight() {
 		relay2.set(Relay.Value.kForward);
 		System.out.println("shootRight-kForward");
@@ -63,7 +67,8 @@ public class ShirtLauncher extends Subsystem {
 		relay2.set(Relay.Value.kOff);
 		System.out.println("retractRight-Reverse");
 	}
-
+	
+	// Solenoid Controls
 	public void toggleSolenoid() {
 		solenoid.set(!solenoid.get());
 		System.out.println("solenoid-Toggle");
@@ -76,7 +81,6 @@ public class ShirtLauncher extends Subsystem {
 
 	public void solenoidOff() {
 		solenoid.set(false);
-		relay2.set(Relay.Value.kOff);
 		System.out.println("solenoid-Off");
 	}
 

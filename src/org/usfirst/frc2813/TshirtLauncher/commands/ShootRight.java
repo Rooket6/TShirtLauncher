@@ -20,24 +20,27 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ShootRight extends Command {
 
+	// Normal Java constructor
+	// This is a good place to put the requires method
 	public ShootRight() {
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
-
 		requires(Robot.shirtLauncher);
 	}
-
+	
 	// Called just before this Command runs the first time
 	protected void initialize() {
-			Robot.shirtLauncher.shootRight();
-			Timer.delay(Robot.shirtLauncher.getDelay());
-			Robot.shirtLauncher.retractRight();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		Robot.shirtLauncher.solenoidOff();
+		Robot.shirtLauncher.shootRight();
+		Timer.delay(Robot.shirtLauncher.getDelay());
+		Robot.shirtLauncher.retractRight();
+		Robot.shirtLauncher.solenoidOn();
 	}
 
+	// This code is basically run after each iteration of execute(), if you want a command
+	// to run once and only once, you put return true;
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		return true;
@@ -51,4 +54,5 @@ public class ShootRight extends Command {
 	// subsystems is scheduled to run
 	protected void interrupted() {
 	}
+	
 }
